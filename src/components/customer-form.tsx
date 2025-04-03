@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { useRouter } from "next/navigation"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -10,7 +11,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   phone_number: z.string().min(10, { message: "Please enter a correct phone number" }),
@@ -21,7 +21,6 @@ interface Props {
   loginCustomer: ({ name, phone_number }: { name: string; phone_number: string; }) => Promise<{
     success: boolean;
     data: {
-      id: string;
       name: string;
       phone_number: string;
     } | null;
