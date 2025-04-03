@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { GalleryVerticalEndIcon, ShieldCheckIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { GalleryVerticalEndIcon } from "lucide-react";
 import { CustomerForm } from "@/components/customer-form";
+import { loginCustomer } from "@/app/actions";
 
-export default function Page() {
+export default async function Page() {
   return (
     <main className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
       <div className="flex w-full max-w-sm flex-col gap-6">
@@ -14,25 +14,7 @@ export default function Page() {
           FeastFlow
         </Link>
 
-        <Card>
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl">Welcome</CardTitle>
-            <CardDescription>
-              Let&apos;s take your order
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent>
-            <CustomerForm />
-          </CardContent>
-
-          <CardFooter className="flex items-center justify-center gap-2 text-muted-foreground border-t border-muted">
-            <ShieldCheckIcon className="size-4" />
-            <p className="text-sm font-medium">
-              Your data is safe with us
-            </p>
-          </CardFooter>
-        </Card>
+        <CustomerForm loginCustomer={loginCustomer} />
       </div>
     </main>
   )
