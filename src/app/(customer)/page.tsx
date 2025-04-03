@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { GalleryVerticalEndIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { GalleryVerticalEndIcon, ShieldCheckIcon } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { CustomerForm } from "@/components/customer-form";
 
 export default function Page() {
   return (
@@ -14,17 +15,23 @@ export default function Page() {
         </Link>
 
         <Card>
-          <CardHeader>
-            <CardHeader className="text-center">
-              <CardTitle className="text-xl">Welcome</CardTitle>
-              <CardDescription>
-                Let&apos;s take your order
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-
-            </CardContent>
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">Welcome</CardTitle>
+            <CardDescription>
+              Let&apos;s take your order
+            </CardDescription>
           </CardHeader>
+
+          <CardContent>
+            <CustomerForm />
+          </CardContent>
+
+          <CardFooter className="flex items-center justify-center gap-2 text-muted-foreground border-t border-muted">
+            <ShieldCheckIcon className="size-4" />
+            <p className="text-sm font-medium">
+              Your data is safe with us
+            </p>
+          </CardFooter>
         </Card>
       </div>
     </main>
