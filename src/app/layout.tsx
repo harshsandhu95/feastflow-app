@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque } from "next/font/google"
+import RootProvider from "@/components/providers/root-provider";
+import { fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import "./globals.css";
-
-const fontSans = Bricolage_Grotesque({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +16,10 @@ export default function RootLayout({
 }: Readonly<Props>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable}`}
-      >
-        {children}
+      <body className={cn(fontSans.variable)}>
+        <RootProvider>
+          {children}
+        </RootProvider>
       </body>
     </html>
   );
