@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import RootProvider from "@/components/providers/root-provider";
+import { Toaster } from "@/components/ui/sonner";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={cn(fontSans.variable)}>
         <RootProvider>
           {children}
+          <Toaster />
         </RootProvider>
       </body>
     </html>
