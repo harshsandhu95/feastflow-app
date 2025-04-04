@@ -3,16 +3,10 @@
 import * as React from "react"
 import {
   ArrowUpCircleIcon,
-  BarChartIcon,
-  CameraIcon,
-  FileCodeIcon,
-  FileTextIcon,
-  FolderIcon,
-  HelpCircleIcon,
-  LayoutDashboardIcon,
-  ListIcon,
-  SearchIcon,
-  SettingsIcon,
+  ChartPieIcon,
+  LifeBuoyIcon,
+  Package2Icon,
+  SendIcon,
   UsersIcon,
 } from "lucide-react"
 
@@ -29,105 +23,65 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "#",
-      icon: LayoutDashboardIcon,
-    },
-    {
-      title: "Lifecycle",
-      url: "#",
-      icon: ListIcon,
-    },
-    {
-      title: "Analytics",
-      url: "#",
-      icon: BarChartIcon,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: FolderIcon,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: UsersIcon,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: CameraIcon,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: FileTextIcon,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: FileCodeIcon,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "#",
-      icon: SettingsIcon,
-    },
-    {
-      title: "Get Help",
-      url: "#",
-      icon: HelpCircleIcon,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: SearchIcon,
-    },
-  ],
-}
+  const data = {
+    navMain: [
+      {
+        title: "Statistics",
+        url: "/dashboard/statistics",
+        icon: ChartPieIcon,
+      },
+      {
+        title: "Orders",
+        url: "/dashboard/orders",
+        icon: Package2Icon,
+        items: [
+          {
+            title: "Completed",
+            url: "/dashboard/orders?status=completed",
+          },
+          {
+            title: "Pending",
+            url: "/dashboard/orders?status=pending",
+          },
+          {
+            title: "Cancelled",
+            url: "/dashboard/orders?status=cancelled",
+          },
+        ],
+      },
+      {
+        title: "Staff",
+        url: "/dashboard/staff",
+        icon: UsersIcon,
+        items: [
+          {
+            title: "Managers",
+            url: "/dashboard/staff?role=manager",
+          },
+          {
+            title: "Host",
+            url: "/dashboard/staff?role=host",
+          },
+          {
+            title: "Chef",
+            url: "/dashboard/staff?role=chef",
+          },
+        ],
+      },
+    ],
+    navSecondary: [
+      {
+        title: "Support",
+        url: "#",
+        icon: LifeBuoyIcon,
+      },
+      {
+        title: "Feedback",
+        url: "#",
+        icon: SendIcon,
+      },
+    ],
+  };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -141,7 +95,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <ArrowUpCircleIcon className="h-5 w-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">FeastFlow</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -152,7 +106,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   )
