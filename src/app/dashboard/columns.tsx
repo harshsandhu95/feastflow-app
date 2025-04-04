@@ -15,6 +15,8 @@ import { DataTableColumnHeader } from "@/components/data-table/column-header"
 
 export type Order = {
   id: string
+  customer_name: string
+  customer_phone_number: string
   status: string
   items_count: number
   amount: number
@@ -23,7 +25,15 @@ export type Order = {
 export const columns: ColumnDef<Order>[] = [
   {
     accessorKey: "id",
-    header: "Order Number",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Order Number" />,
+  },
+  {
+    accessorKey: "customer_name",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Customer Name" />,
+  },
+  {
+    accessorKey: "customer_phone_number",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Phone Number" />,
   },
   {
     accessorKey: "status",
@@ -31,7 +41,7 @@ export const columns: ColumnDef<Order>[] = [
   },
   {
     accessorKey: "items_count",
-    header: "Items",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Items" />,
   },
   {
     accessorKey: "amount",
