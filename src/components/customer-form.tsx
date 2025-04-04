@@ -74,71 +74,67 @@ export function CustomerForm({ loginCustomer }: Props) {
   }, [customer, router])
 
   return customer ? (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <Card className="min-h-64 items-center justify-center">
-        <h1 className="text-xl font-semibold">Welcome {exists && "back"} {customer.name}</h1>
-      </Card>
-    </motion.div>
+    <Card className="min-h-64 items-center justify-center">
+      <h1 className="text-xl font-semibold">Welcome {exists && "back"} {customer.name}</h1>
+    </Card>
   ) : (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome</CardTitle>
-          <CardDescription>
-            Let&apos;s take your order
-          </CardDescription>
-        </CardHeader>
+    <Card>
+      <CardHeader className="text-center">
+        <CardTitle className="text-xl">Welcome</CardTitle>
+        <CardDescription>
+          Let&apos;s take your order
+        </CardDescription>
+      </CardHeader>
 
-        <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 place-items-stretch gap-y-2">
-              <FormField
-                control={form.control}
-                name="phone_number"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="(+91) 123 456 7890" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 place-items-stretch gap-y-2">
+            <FormField
+              control={form.control}
+              name="phone_number"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input placeholder="(+91) 123 456 7890" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John Doe" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              <Button disabled={loading} className="mt-4">
-                {loading ? (
-                  <Loader2 className="animate-spin" />
-                ) : (
-                  <ArrowRightIcon />
-                )}
-                Continue
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
+            <Button disabled={loading} className="mt-4">
+              {loading ? (
+                <Loader2 className="animate-spin" />
+              ) : (
+                <ArrowRightIcon />
+              )}
+              Continue
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
 
-        <CardFooter className="flex items-center justify-center gap-2 text-muted-foreground border-t border-muted">
-          <ShieldCheckIcon className="size-4" />
-          <p className="text-sm font-medium">
-            Your data is safe with us
-          </p>
-        </CardFooter>
-      </Card>
-    </motion.div>
+      <CardFooter className="flex items-center justify-center gap-2 text-muted-foreground border-t border-muted">
+        <ShieldCheckIcon className="size-4" />
+        <p className="text-sm font-medium">
+          Your data is safe with us
+        </p>
+      </CardFooter>
+    </Card>
   )
 }

@@ -1,4 +1,6 @@
-import { MotionConfig } from "motion/react";
+"use client"
+
+import { MotionConfig, motion } from "motion/react"
 
 export function MotionProvider({ children }: React.PropsWithChildren) {
   return (
@@ -9,7 +11,12 @@ export function MotionProvider({ children }: React.PropsWithChildren) {
         ease: "easeInOut"
       }}
     >
-      {children}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {children}
+      </motion.div>
     </MotionConfig>
   )
 }
