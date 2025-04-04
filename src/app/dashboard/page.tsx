@@ -28,7 +28,6 @@ export default function Page() {
               const TrendIcon = dataItem.trendUp ? TrendingUpIcon : dataItem.trendDown ? TrendingDownIcon : null;
               const badgeColor = dataItem.trendUp ? 'outline' : dataItem.trendDown ? 'outline' : undefined;
               const changeFormatted = `${dataItem.changePrefix || '+'}${Math.abs(dataItem.change)}${dataItem.changeSuffix || ''}`;
-              console.log(dataItem.title)
 
               return (
                 <Card key={key} className="@container/card">
@@ -59,6 +58,7 @@ export default function Page() {
             })}
           </div>
 
+          {/* Table */}
           <div className="px-4 lg:px-6">
             <DataTable
               enablePagination
