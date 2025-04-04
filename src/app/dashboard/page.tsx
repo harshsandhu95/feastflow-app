@@ -7,8 +7,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { DataTable } from "@/components/data-table"
+import { columns } from "./columns"
 
 export default function Page() {
+  const data = [
+    {
+      id: "1",
+      status: "Shipped",
+      items_count: 3,
+      amount: 150.0,
+    },
+    {
+      id: "2",
+      status: "Pending",
+      items_count: 2,
+      amount: 75.0,
+    },
+    {
+      id: "3",
+      status: "Delivered",
+      items_count: 5,
+      amount: 250.0,
+    },
+  ]
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="@container/main flex flex-1 flex-col gap-2">
@@ -99,6 +122,12 @@ export default function Page() {
                 <div className="text-muted-foreground">Meets growth projections</div>
               </CardFooter>
             </Card>
+          </div>
+          <div className="px-4 lg:px-6">
+            <DataTable
+              data={data}
+              columns={columns}
+            />
           </div>
         </div>
       </div>
