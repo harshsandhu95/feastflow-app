@@ -25,3 +25,16 @@ export type DashboardData = {
   returningCustomers: DashboardCardData;
   totalOrders: DashboardCardData;
 };
+
+export interface OrderStatistics {
+  month: string;
+  completed: number;
+  pending: number;
+  cancelled: number;
+  total: number;
+}
+
+export interface RevenueReport {
+  month: string;
+  revenue: number;
+}
