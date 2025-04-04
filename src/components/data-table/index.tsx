@@ -21,6 +21,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { DataTablePagination } from "./pagination"
+import { Card } from "../ui/card"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -52,7 +53,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <div className="space-y-2 rounded-md border">
+      <Card className="py-2 gap-x-2 rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -101,7 +102,7 @@ export function DataTable<TData, TValue>({
             <DataTablePagination table={table} />
           </div>
         )}
-      </div>
+      </Card>
     </>
   )
 }
