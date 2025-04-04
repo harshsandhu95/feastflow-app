@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GalleryVerticalEndIcon } from "lucide-react";
-import { CustomerForm } from "@/components/customer-form";
 import { loginCustomer } from "@/app/actions";
+import { CustomerForm } from "@/app/(customer)/_components/customer-form";
 
 export default async function Page() {
   return (

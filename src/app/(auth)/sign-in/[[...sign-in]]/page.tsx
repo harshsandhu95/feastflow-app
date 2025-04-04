@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeftIcon, GalleryVerticalEndIcon } from "lucide-react";
-import { LoginForm } from "@/components/login-form";
+import { LoginForm } from "@/app/(auth)/sign-in/_components/login-form";
 import { Button } from "@/components/ui/button";
 
 export default function Page() {
