@@ -72,7 +72,6 @@
   --sidebar-ring: oklch(0.554 0.135 66.442);
 }
 
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -118,5 +117,14 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
