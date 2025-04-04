@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { DataTableColumnHeader } from "@/components/data-table/column-header"
 
 export type Order = {
   id: string
@@ -26,7 +27,7 @@ export const columns: ColumnDef<Order>[] = [
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
   },
   {
     accessorKey: "items_count",
@@ -34,7 +35,7 @@ export const columns: ColumnDef<Order>[] = [
   },
   {
     accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Amount" className="justify-end" />,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"))
       const formatted = new Intl.NumberFormat("en-US", {
