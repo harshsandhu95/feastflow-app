@@ -52,7 +52,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <div className="rounded-md border">
+      <div className="space-y-2 rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -95,7 +95,12 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-        {enablePagination && <DataTablePagination table={table} />}
+
+        {enablePagination && (
+          <div className="pb-1">
+            <DataTablePagination table={table} />
+          </div>
+        )}
       </div>
     </>
   )
