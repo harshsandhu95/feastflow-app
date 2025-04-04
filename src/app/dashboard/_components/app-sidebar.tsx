@@ -4,15 +4,16 @@ import * as React from "react"
 import {
   ArrowUpCircleIcon,
   ChartPieIcon,
+  LayoutDashboardIcon,
   LifeBuoyIcon,
   Package2Icon,
   SendIcon,
   UsersIcon,
 } from "lucide-react"
 
-import { NavMain } from "@/components/dashboard/nav-main"
-import { NavSecondary } from "@/components/dashboard/nav-secondary"
-import { NavUser } from "@/components/dashboard/nav-user"
+import { NavMain } from "@/app/dashboard/_components/nav-main"
+import { NavSecondary } from "@/app/dashboard/_components/nav-secondary"
+import { NavUser } from "@/app/dashboard/_components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -25,6 +26,11 @@ import {
 
   const data = {
     navMain: [
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: LayoutDashboardIcon,
+      },
       {
         title: "Statistics",
         url: "/dashboard/statistics",
