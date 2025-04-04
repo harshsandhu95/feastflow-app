@@ -52,5 +52,8 @@
   },
   "trustedDependencies": [
     "@clerk/shared"
-  ]
+  ],
+  "overrides": {
+    "react-is": "^19.0.0-rc-69d4b800-20241021"
+  }
 }
